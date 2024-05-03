@@ -16,7 +16,7 @@ export class Usuario{
     @Column({type: 'text'})
     senha: string
 
-    @OneToMany(() => Sharkin, sharkin => sharkin.usuarios)
+    @OneToMany(() => Sharkin, sharkin => sharkin.usuario)
     sharkin: Sharkin[]
 
     @OneToMany(() => Sharkout, sharkout => sharkout.usuario)

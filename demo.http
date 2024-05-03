@@ -1,0 +1,19 @@
+POST http://localhost:3000/sharkin
+Content-Type: application/json
+
+{
+    "dia": "2024-09-01",
+    "horario": "10:00",
+    "usuarioId": 2
+}
+
+###
+
+POST http://localhost:3000/usuario
+Content-Type: application/json
+
+{
+    "nome": "Lara",
+    "email": "lara@email.com",
+    "senha": "123456"
+}

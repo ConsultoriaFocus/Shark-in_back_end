@@ -4,14 +4,14 @@ import { sharkinRepository } from '../repositories/sharkinRepository'
 export class SharkinController {
     
     async create(req: Request, res: Response){
-        const {dia, horario} = req.body
+        const {dia, horario, usuarioId} = req.body
         
-        if(!dia && !horario){
+        if(!dia || !horario || !usuarioId){
             return res.status(400).json({message: "O horário é obrigatório"})
         }
 
         try {
-            const newSharkin = sharkinRepository.create({ dia, horario })
+            const newSharkin = sharkinRepository.create({ dia, horario, usuario: { id: usuarioId } })
 
             await sharkinRepository.save(newSharkin)
 

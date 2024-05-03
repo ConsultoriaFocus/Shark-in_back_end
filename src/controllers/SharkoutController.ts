@@ -3,10 +3,10 @@ import { sharkoutRepository } from "../repositories/sharkoutRepository";
 
 export class SharkoutController{
     async create (req: Request, res: Response){
-        const {data, horario} = req.body
+        const {data, horario, usuarioID} = req.body
 
         try {
-            const newSharkout = sharkoutRepository.create({data, horario})
+            const newSharkout = sharkoutRepository.create({data, horario, usuario: {id: usuarioID}})
             await sharkoutRepository.save(newSharkout)
 
             return res.status(201).json(newSharkout)
